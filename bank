@@ -1,0 +1,52 @@
+import  {
+  IBanksUser ,
+  BanksUserAccount ,
+  BanksUserTransaction ,
+  MultiResourceCreationResponse ,
+  AccountType ,
+  UsageType ,
+  BanksUserTransactionType ,
+  BanksUserStatus ,
+}  de  '../../src/lib' ;
+
+export  const  banksUser : IBanksUser  =  {
+  id : 'id1' ,
+  status : BanksUserStatus . TERMINADO ,
+  redirectUrl : 'mockRedirectUrl' ,
+  redirectUrlCreatedAt : 1234567 ,
+  redirectUrlTTL : 500 ,
+  callbackUrl : 'mockCallbackUrl' ,
+  plugIn : {
+    budgetInsightBank : {
+      baseUrl : 'mockBaseUrl' ,
+      token : 'mockToken' ,
+      clientId : 'mockClientId' ,
+    } ,
+  } ,
+  pontuações : [ ] ,
+  análise : {  alertas : [ ] ,  regularCashFlows : [ ] ,  confiabilidade : 'ALTO'  } ,
+} ;
+
+export  const  banksUserAccount : BanksUserAccount  =  {
+  id : 'accountId1' ,
+  saldo : 100 ,
+  balanceDate : '23 / 06/2020 ' ,
+  connectionSource : 'mockConnectionSource' ,
+  moeda : 'EUR' ,
+  tipo : AccountType . ECONOMIAS ,
+  uso : UsageType . PESSOAL ,
+} ;
+
+export  const  banksUserTransaction : BanksUserTransaction  =  {
+  id : 'transactionId1' ,
+  montante : 50 ,
+  categoria : 'mockCategory' ,
+  data : '23 / 06/2020 ' ,
+  descrição : 'mockDescription' ,
+  tipo : BanksUserTransactionType . ATM ,
+} ;
+
+export  const  banksUserTransactionResponse : MultiResourceCreationResponse < BanksUserTransaction >  =  {
+  elementos : [ {  resource : banksUserTransaction ,  status : 200  } ] ,
+  metadados : {  falha : 0 ,  sucesso : 1 ,  total : 1  } ,
+} ;
